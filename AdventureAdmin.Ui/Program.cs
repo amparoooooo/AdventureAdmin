@@ -36,5 +36,7 @@ static class Program
         services.AddTransient<MainForm>();
         services.AddTransient<ProductList>();
         services.AddTransient<ProductForm>();
+        services.AddTransient<ProductDescriptionList>();
+        services.AddTransient<ProductDescriptionForm>();
     }
 }

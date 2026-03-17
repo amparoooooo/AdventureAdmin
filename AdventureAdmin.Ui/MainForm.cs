@@ -48,7 +48,8 @@ public partial class MainForm : Form
 
     private void productDescriptionToolStripMenuItem_Click(object sender, EventArgs e)
     {
-
+        var productDescriptionList = Program.ServiceProvider.GetRequiredService<ProductDescriptionList>();
+        productDescriptionList.Show();
     }
 
     private void addressTypeToolStripMenuItem_Click(object sender, EventArgs e)

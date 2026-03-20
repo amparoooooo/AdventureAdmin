@@ -89,7 +89,8 @@ public partial class MainForm : Form
 
     private void personToolStripMenuItem_Click(object sender, EventArgs e)
     {
-
+        var personForm = Program.ServiceProvider.GetRequiredService<AdventureAdmin.Ui.Person.PersonForm>();
+        personForm.Show();
     }
 
     private void creditCardToolStripMenuItem_Click(object sender, EventArgs e)

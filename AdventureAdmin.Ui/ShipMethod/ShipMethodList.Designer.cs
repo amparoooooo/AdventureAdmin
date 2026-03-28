@@ -41,7 +41,7 @@
             nuevoButton.TabIndex = 2;
             nuevoButton.Text = "✅ Nuevo";
             nuevoButton.UseVisualStyleBackColor = true;
-            nuevoButton.Click += nuevoButton_Click;
+            nuevoButton.Click += this.nuevoButton_Click;
             // 
             // ShipMethodDataView
             // 

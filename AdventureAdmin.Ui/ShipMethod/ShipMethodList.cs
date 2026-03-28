@@ -1,19 +1,18 @@
-﻿using AdventureAdmin.Data.Context;
-using Microsoft.EntityFrameworkCore;
+﻿using AdventureAdmin.Ui.Services;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace AdventureAdmin.Ui.ShipMethod
 {
     public partial class ShipMethodList : Form
     {
-        private readonly AdventureWorksContext _context;
-        public ShipMethodList(AdventureWorksContext context)
+        private readonly ShipMethodService _service;
+        public ShipMethodList(ShipMethodService service)
         {
             InitializeComponent();
-            _context = context;
+            _service = service;
         }
 
-        private async Task ShipMethodList_Load(object sender, EventArgs e)
+        private async void ShipMethodList_Load(object sender, EventArgs e)
         {
             await LoadDataAsync();
         }
@@ -22,7 +21,7 @@ namespace AdventureAdmin.Ui.ShipMethod
         {
             try
             {
-                var shipMethods = await _context.ShipMethods.ToListAsync();
+                var shipMethods = await _service.GetList(c => true);
                 ShipMethodDataView.DataSource = shipMethods;
             }
             catch (Exception ex)
@@ -32,7 +31,7 @@ namespace AdventureAdmin.Ui.ShipMethod
             }
         }
 
-        private async Task nuevoButton_Click(object sender, EventArgs e)
+        private async void nuevoButton_Click(object sender, EventArgs e)
         {
             var shipMethodForm = Program.ServiceProvider.GetRequiredService<ShipMethodForm>();
             shipMethodForm.ShowDialog();

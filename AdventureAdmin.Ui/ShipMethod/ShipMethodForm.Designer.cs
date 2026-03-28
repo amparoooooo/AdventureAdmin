@@ -98,7 +98,7 @@
             btnSave.Size = new Size(104, 34);
             btnSave.TabIndex = 0;
             btnSave.Text = "💾Guardar";
-            btnSave.Click += btnSave_Click;
+            btnSave.Click += this.btnSave_Click;
             // 
             // btnCancel
             // 
@@ -143,7 +143,6 @@
             MinimizeBox = false;
             Name = "ShipMethodForm";
             Text = "ShipMethodForm";
-            Load += ShipMethodForm_Load;
             panelButtons.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)errorProvider).EndInit();
             ((System.ComponentModel.ISupportInitialize)numShipBase).EndInit();

@@ -1,22 +1,18 @@
 ﻿using AdventureAdmin.Data.Context;
+using AdventureAdmin.Ui.Services;
 
 namespace AdventureAdmin.Ui.ShipMethod
 {
     public partial class ShipMethodForm : Form
     {
-        private readonly AdventureWorksContext _context;
-        public ShipMethodForm(AdventureWorksContext context)
+        private ShipMethodService _service;
+        public ShipMethodForm(ShipMethodService service)
         {
             InitializeComponent();
-            _context = context;
+            _service = service;
         }
 
-        private void ShipMethodForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private bool validteForm()
+        private bool validateForm()
         {
             errorProvider.Clear();
             bool valid = true;
@@ -42,9 +38,9 @@ namespace AdventureAdmin.Ui.ShipMethod
             return valid;
         }
 
-        private async Task btnSave_Click(object sender, EventArgs e)
+        private async void btnSave_Click(object sender, EventArgs e)
         {
-            if (!validteForm()) return;
+            if (!validateForm()) return;
 
             try
             {
@@ -58,11 +54,18 @@ namespace AdventureAdmin.Ui.ShipMethod
                     ModifiedDate = DateTime.Now
                 };
 
-                _context.ShipMethods.Add(ShipMethod);
-                await _context.SaveChangesAsync();
+                bool paso = await _service.Guardar(ShipMethod);
 
-                MessageBox.Show("Metoto de envio creado correctamente.", "Éxito",
-                MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (paso)
+                {
+                    MessageBox.Show("Metoto de envio creado correctamente.", "Éxito",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo crear el metodo de envio.", "Error",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
 
                 this.Close();
             }

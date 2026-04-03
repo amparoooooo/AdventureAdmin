@@ -73,9 +73,9 @@ static class Program
         //Services 
         services.AddTransient<CreditCardService>();
         services.AddTransient<PersonService>();
+        services.AddTransient<DepartmentService>();
         //services.AddTransient<CreditCardService>();
         //services.AddTransient<ProductCategoryService>();
-        //services.AddTransient<DepartmentService>();
         //services.AddTransient<CurrencyService>();
         //services.AddTransient<ShiftService>();
         //services.AddTransient<CountryRegionService>();

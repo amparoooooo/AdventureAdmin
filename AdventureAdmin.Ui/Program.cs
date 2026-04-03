@@ -68,6 +68,8 @@ static class Program
         services.AddTransient<CultureList>();
       
         //Services 
+        services.AddTransient<CreditCardService>();
+        services.AddTransient<PersonService>();
         //services.AddTransient<CreditCardService>();
         //services.AddTransient<ProductCategoryService>();
         //services.AddTransient<DepartmentService>();

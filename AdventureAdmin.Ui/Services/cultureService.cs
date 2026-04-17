@@ -7,14 +7,14 @@ namespace AdventureAdmin.Ui.Services;
 
 public class CultureService(
    AdventureWorksContext context
-    ) : IService<Data.Models.Culture, int>
+    ) : IService<Data.Models.Culture, string>
 {
-    public Task<Data.Models.Culture?> Buscar(int id)
+    public Task<Data.Models.Culture?> Buscar(string id)
     {
         throw new NotImplementedException();
     }
 
-    public Task<bool> Eliminar(int id)
+    public Task<bool> Eliminar(string id)
     {
         throw new NotImplementedException();
     }

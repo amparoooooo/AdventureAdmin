@@ -16,7 +16,7 @@ namespace AdventureAdmin.Ui.Culture
         private void CultureForm_Load(object sender, EventArgs e)
         {
             button1.Text = "Guardar";
-           
+
         }
 
         private async void button1_Click(object sender, EventArgs e)
@@ -27,7 +27,7 @@ namespace AdventureAdmin.Ui.Culture
             {
                 button1.Enabled = false;
 
-                _context.ChangeTracker.Clear();
+               // _context.ChangeTracker.Clear();
 
                 string idIngresado = textId.Text.Trim();
 
@@ -44,7 +44,6 @@ namespace AdventureAdmin.Ui.Culture
                 {
                     CultureId = idIngresado,
                     Name = textName.Text.Trim(),
-                    ModifiedDate = DateTime.Now
                 };
 
                 _context.Cultures.Add(culture);
@@ -94,6 +93,12 @@ namespace AdventureAdmin.Ui.Culture
             }
 
             return true;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
+            this.Close();
         }
     }
 }
